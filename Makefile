@@ -6,7 +6,7 @@ BUILD = build
 default:
 	$(MAKE) $(BINS)
 
-BINS = template/template
+BINS = template/template flow_led/flow_led
 $(BINS):
 	$(CC) $(CFLAGS) $@.c  -o $@.ihx
 	$(PACKIHX) $@.ihx > $@.hex

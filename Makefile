@@ -2,12 +2,19 @@ include common.mk
 
 BUILD = build
 
-.PHONY: default $(BINS)
+.PHONY: default all clean
 default:
-	$(MAKE) $(BINS)
+	$(MAKE) all
 
-BINS = template/template flow_led/flow_led
-$(BINS):
-	$(CC) $(CFLAGS) $@.c  -o $@.ihx
-	$(PACKIHX) $@.ihx > $@.hex
-	$(RM) $@.asm $@.ihx $@.lk $@.lst $@.map $@.mem $@.rel $@.rst $@.sym
+HEX = template/template.hex \
+soft_sleep/soft_sleep.hex \
+timer/timer.hex
+
+${HEX}:%.hex : %.c
+	$(CC) $(CFLAGS) $^ -o $*.ihx
+	$(PACKIHX) $*.ihx > $*.hex
+	$(RM) $*.asm $*.ihx $*.lk $*.lst $*.map $*.mem $*.rel $*.rst $*.sym
+all: ${HEX}
+
+clean:
+	$(RM) $(HEX)

@@ -1,7 +1,7 @@
 #include "8052.h"
 #include "utils.h"
 
-void timer_cb(void* ud) {
+void timer_cb(int timer_id, void* ud) {
     
 }
 

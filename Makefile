@@ -8,7 +8,7 @@ default:
 
 HEX = template/template.hex \
 soft_sleep/soft_sleep.hex \
-timer/timer.hex
+timer0/timer0.hex
 
 ${HEX}:%.hex : %.c
 	$(CC) $(CFLAGS) $^ -o $*.ihx

@@ -1,10 +1,9 @@
 #ifndef __TIMER0_H
 #define __TIMER0_H
 
-/**
- * 
+/*
 芯片型号：		STC89C52RC
-系统频率: 		1.0592MHz
+系统频率: 		11.0592MHz
 8051指令集: 	STC-Y1
 */
 
